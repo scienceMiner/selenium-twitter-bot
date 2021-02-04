@@ -1,10 +1,11 @@
 from selenium import webdriver
 from selenium import common
 from selenium.webdriver.common import keys
-from webdriver_manager.firefox import GeckoDriverManager
+import webdriver_manager.chrome
 import time
 
-driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+driver = webdriver.Chrome( executable_path="/usr/local/bin/chromedriver" )
+#driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
 class TwitterBot:
 
@@ -52,7 +53,7 @@ class TwitterBot:
 
     def login(self):
         bot = self.bot
-        bot.get('https://twitter.com/')
+        bot.get('https://twitter.com/login')
         time.sleep(4)
 
         try:
